@@ -14,9 +14,20 @@ class Conta
     public function __construct(
         public readonly int $agencia,
         string $cpf,
-        string $titular
+        string $nome,
+        string $cidade,
+        string $bairro,
+        string $rua,
+        string $numero
     ) {
-        $this->titular = new Titular($cpf, $titular);
+        $this->titular = new Titular(
+            $cpf,
+            $nome,
+            $cidade,
+            $bairro,
+            $rua,
+            $numero
+        );
 
         self::$numeroDeContas++;
 
@@ -68,14 +79,14 @@ class Conta
 
     //Getters e Setters
 
-    public function getTitular(): string
+    public function getNome(): string
     {
-        return $this->titular->getTitular();
+        return $this->titular->getNome();
     }
 
     public function getCpf(): string
     {
-        return $this->titular->cpf;
+        return $this->titular->getCpf();
     }
 
     public function getSaldo(): float
@@ -88,9 +99,29 @@ class Conta
         return $this->agencia;
     }
 
-    public function setTitular(string $titular): void
+    public function getCidade(): string
     {
-        $this->titular->setTitular($titular);
+        return $this->titular->getCidade();
+    }
+
+    public function getBairro(): string
+    {
+        return $this->titular->getBairro();
+    }
+
+    public function getRua(): string
+    {
+        return $this->titular->getRua();
+    }
+
+    public function getNumero(): string
+    {
+        return $this->titular->getNumero();
+    }
+
+    public function setNome(string $nome): void
+    {
+        $this->titular->setNome($nome);
     }
 
     //Métodos privados
