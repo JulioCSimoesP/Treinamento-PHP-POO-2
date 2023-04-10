@@ -1,5 +1,9 @@
 <?php
 
+namespace PHP\POO2\Model\Account;
+
+use PHP\POO2\Model\{Endereco, Pessoa};
+
 class Titular extends Pessoa
 {
     //Propriedades
@@ -41,6 +45,11 @@ class Titular extends Pessoa
     public function getNumero(): string
     {
         return $this->endereco->getNumero();
+    }
+
+    public function setEndereco(string $cidade, string $bairro, string $rua, string $numero): void
+    {
+        $this->endereco->setEndereco($cidade, $bairro, $rua, $numero);
     }
 
 }

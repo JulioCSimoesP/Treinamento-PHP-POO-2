@@ -1,5 +1,7 @@
 <?php
 
+namespace PHP\POO2\Model;
+
 class Endereco
 {
     //Propriedades/Construtor
@@ -33,5 +35,15 @@ class Endereco
     public function getNumero(): string
     {
         return $this->numero;
+    }
+
+    public function setEndereco(string $cidade, string $bairro, string $rua, string $numero): void
+    {
+        $this->cidade = $cidade;
+        $this->bairro = $bairro;
+        $this->rua = $rua;
+        $this->numero = $numero;
+
+        echo 'Endereco alterado com sucesso.' . PHP_EOL;
     }
 }

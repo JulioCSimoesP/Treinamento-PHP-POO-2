@@ -1,5 +1,7 @@
 <?php
 
+namespace PHP\POO2\Model;
+
 class Pessoa
 {
     protected string $nome;
@@ -47,7 +49,7 @@ class Pessoa
 
     protected function cpfInvalido(string $cpf): bool
     {
-        if (preg_match('/([0-9]{2}[.]?[0-9]{3}[.]?[0-9]{3}\/?[0-9]{4}-?[0-9]{2})|([0-9]{3}[.]?[0-9]{3}[.]?[0-9]{3}-?[0-9]{2})/', $cpf)) {
+        if (preg_match('/([0-9]{2}[.]?[0-9]{3}[.]?[0-9]{3}\/?[0-9]{4}-?[0-9]{2})|([0-9]{3}[.]?[0-9]{3}[.]?[0-9]{3}-?[0-9]{2})/', $cpf) === 1) {
             return false;
         }
 

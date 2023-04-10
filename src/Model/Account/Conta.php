@@ -1,5 +1,7 @@
 <?php
 
+namespace PHP\POO2\Model\Account;
+
 class Conta
 {
     //Propriedades
@@ -13,13 +15,14 @@ class Conta
 
     public function __construct(
         public readonly int $agencia,
-        string $cpf,
-        string $nome,
-        string $cidade,
-        string $bairro,
-        string $rua,
-        string $numero
-    ) {
+        string              $cpf,
+        string              $nome,
+        string              $cidade,
+        string              $bairro,
+        string              $rua,
+        string              $numero
+    )
+    {
         $this->titular = new Titular(
             $cpf,
             $nome,
@@ -36,7 +39,8 @@ class Conta
 
     //Destruidor
 
-    public function __destruct() {
+    public function __destruct()
+    {
         self::$numeroDeContas--;
         echo 'O objeto Conta foi destruido.' . PHP_EOL;
     }
@@ -122,6 +126,11 @@ class Conta
     public function setNome(string $nome): void
     {
         $this->titular->setNome($nome);
+    }
+
+    public function setEndereco(string $cidade, string $bairro, string $rua, string $numero): void
+    {
+        $this->titular->setEndereco($cidade, $bairro, $rua, $numero);
     }
 
     //Métodos privados
