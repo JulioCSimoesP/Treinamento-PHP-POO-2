@@ -3,8 +3,9 @@
 namespace TreinoPHP\POO2\Model\Account;
 
 use TreinoPHP\POO2\Model\{Endereco, Pessoa};
+use TreinoPHP\POO2\Interfaces\Autenticavel;
 
-class Titular extends Pessoa
+class Titular extends Pessoa implements Autenticavel
 {
     //Propriedades
 
@@ -52,4 +53,10 @@ class Titular extends Pessoa
         $this->endereco->setEndereco($cidade, $bairro, $rua, $numero);
     }
 
+    //Interfaces
+
+    public function autenticarPrivilegio(string $senha): bool
+    {
+        return $senha === 'abcd';
+    }
 }

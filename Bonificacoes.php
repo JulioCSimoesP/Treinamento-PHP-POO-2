@@ -32,17 +32,16 @@ foreach ($funcionarios as $indice => $sujeito) {
     echo $controller->getTotalBonificacoes() . PHP_EOL . PHP_EOL;
 }
 
-echo $funcionarios[0]->getNome() . ': ' . $funcionarios[0]->getCargo() . PHP_EOL .
-    'Salário: ' . $funcionarios[0]->getSalario() . PHP_EOL;
-
+echo $funcionarios[0]->getNome() . ': ' . $funcionarios[0]->getCargo() . PHP_EOL . 'Salário: ' . $funcionarios[0]->getSalario() . PHP_EOL;
 $funcionarios[0]->promover();
 
-echo $funcionarios[0]->getNome() . ': ' . $funcionarios[0]->getCargo() . PHP_EOL .
-    'Salário: ' . $funcionarios[0]->getSalario() . PHP_EOL;
-
+echo $funcionarios[0]->getNome() . ': ' . $funcionarios[0]->getCargo() . PHP_EOL . 'Salário: ' . $funcionarios[0]->getSalario() . PHP_EOL;
 $funcionarios[0]->promover();
 
-echo $funcionarios[0]->getNome() . ': ' . $funcionarios[0]->getCargo() . PHP_EOL .
-    'Salário: ' . $funcionarios[0]->getSalario() . PHP_EOL;
-
+echo $funcionarios[0]->getNome() . ': ' . $funcionarios[0]->getCargo() . PHP_EOL . 'Salário: ' . $funcionarios[0]->getSalario() . PHP_EOL;
 $funcionarios[0]->promover();
+
+echo $funcionarios[1]->getNome() . ': ' . $funcionarios[1]->getCargo() . PHP_EOL . 'Salário: ' . $funcionarios[1]->getSalario() . PHP_EOL;
+
+$funcionarios[1]->fornecerAumento(6010);
+echo $funcionarios[1]->getNome() . ': ' . $funcionarios[1]->getCargo() . PHP_EOL . 'Salário: ' . $funcionarios[1]->getSalario() . PHP_EOL;

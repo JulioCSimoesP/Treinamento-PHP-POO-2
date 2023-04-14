@@ -2,7 +2,7 @@
 
 namespace TreinoPHP\POO2\Model\Collaborator;
 
-class Desenvolvedor extends Funcionario
+final class Desenvolvedor extends Funcionario
 {
     //Propriedades
 
@@ -77,5 +77,12 @@ class Desenvolvedor extends Funcionario
         }
 
         return false;
+    }
+
+    //Interfaces
+
+    public function calcularBonificacao(): float
+    {
+        return 500;
     }
 }

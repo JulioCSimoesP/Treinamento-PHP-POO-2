@@ -37,7 +37,7 @@ abstract class Conta
         echo 'Conta criada com sucesso' . PHP_EOL;
     }
 
-    //Destruidor
+    //Métodos mágicos
 
     public function __destruct()
     {
@@ -151,10 +151,9 @@ abstract class Conta
     }
 
     abstract protected function taxaOperacao(): float;
-    /*Modelo de implementação:
-    {
-        return (*valor da taxa*)
-    }
+    /*
+     * Método abstrato que deve retornar um valor decimal entre 0 e 1.
+     * Representa a porcentagem da taxa a ser cobrada pelas operações realizadas no banco para determinado tipo de conta.
     */
 
     //Métodos estáticos

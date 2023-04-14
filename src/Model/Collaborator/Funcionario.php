@@ -37,12 +37,9 @@ abstract class Funcionario extends Pessoa
 
     //Métodos públicos
 
-    public function calcularBonificacao(): float
-    {
-        return $this->salario * 0.1;
-    }
+    abstract public function calcularBonificacao(): float;
 
-    public function fornecerAumento(float $valor): void
+    final public function fornecerAumento(float $valor): void
     {
         if ($this->aumentoInvalido($valor)) {
             return;
@@ -53,7 +50,7 @@ abstract class Funcionario extends Pessoa
 
     //Métodos privados
 
-    protected function aumentoInvalido($valor): bool
+    final protected function aumentoInvalido($valor): bool
     {
         if ($valor <= 0) {
             echo 'Valor de aumento inválido';

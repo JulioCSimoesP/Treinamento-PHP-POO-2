@@ -2,7 +2,9 @@
 
 namespace TreinoPHP\POO2\Model\Collaborator;
 
-class CEO extends Funcionario
+use TreinoPHP\POO2\Interfaces\Autenticavel;
+
+final class CEO extends Funcionario implements Autenticavel
 {
     //Propriedades
 
@@ -14,6 +16,8 @@ class CEO extends Funcionario
     {
         return $this->salario * 2;
     }
+
+    //Interfaces
 
     public function autenticarPrivilegio(string $senha): bool
     {

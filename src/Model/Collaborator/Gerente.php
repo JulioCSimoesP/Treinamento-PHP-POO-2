@@ -2,7 +2,9 @@
 
 namespace TreinoPHP\POO2\Model\Collaborator;
 
-class Gerente extends Funcionario
+use TreinoPHP\POO2\Interfaces\Autenticavel;
+
+final class Gerente extends Funcionario implements Autenticavel
 {
     //Propriedades
 
@@ -13,5 +15,12 @@ class Gerente extends Funcionario
     public function calcularBonificacao(): float
     {
         return $this->salario;
+    }
+
+    //Interfaces
+
+    public function autenticarPrivilegio(string $senha): bool
+    {
+        return $senha === '4321';
     }
 }
