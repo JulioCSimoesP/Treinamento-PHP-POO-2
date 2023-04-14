@@ -5,26 +5,24 @@ use TreinoPHP\POO2\Service\ControladorBonificacoes;
 
 require_once 'autoload.php';
 
-$funcionarios = [];
-
-$funcionarios[] = new Desenvolvedor(
+$funcionarios = [
+    new Desenvolvedor(
     'Joãozinho',
     '123.456.789-10',
     6000,
     1
-);
-
-$funcionarios[] = new Gerente(
+    ),
+    new Gerente(
     'Pedro',
     '456.789.123-10',
     8500
-);
-
-$funcionarios[] = new CEO(
+    ),
+    new CEO(
     'Paulo',
     '123.999.789-90',
     15000
-);
+    )
+];
 
 $controller = new ControladorBonificacoes();
 

@@ -5,7 +5,15 @@ use TreinoPHP\POO2\Model\Collaborator\Desenvolvedor;
 
 require_once 'autoload.php';
 
-$conta1 = new ContaCorrente(11, '123.456.789-10', 'Joãozinho', 'São Paulo', 'Luz', 'GV', '13');
+$conta1 = new ContaCorrente(
+    11,
+    '123.456.789-10',
+    'Joãozinho',
+    'São Paulo',
+    'Luz',
+    'GV',
+    '13'
+);
 
 $agencia1 = $conta1->getAgencia();
 $cpf1 = $conta1->getCpf();
@@ -16,7 +24,15 @@ $bairro1 = $conta1->getBairro();
 $rua1 = $conta1->getRua();
 $numero1 = $conta1->getNumero();
 
-$conta2 = new ContaPoupanca(12, '987.654.321-10', 'Patrícia', 'Manaus', 'Flores', 'Japão', '70A');
+$conta2 = new ContaPoupanca(
+    12,
+    '987.654.321-10',
+    'Patrícia',
+    'Manaus',
+    'Flores',
+    'Japão',
+    '70A'
+);
 
 $agencia2 = $conta2->getAgencia();
 $cpf2 = $conta2->getCpf();
@@ -55,7 +71,12 @@ echo <<<FINAL
 
 echo 'O total de contas criadas é igual a ' . ContaCorrente::getNumeroDeContas() . PHP_EOL . PHP_EOL;
 
-$funcionario1 = new Desenvolvedor('Mario', '132.987.498-15', 5000, 1);
+$funcionario1 = new Desenvolvedor(
+    'Mario',
+    '132.987.498-15',
+    5000,
+    1
+);
 
 $nomeFuncionario1 = $funcionario1->getNome();
 $cpfFuncionario1 = $funcionario1->getCpf();
@@ -76,7 +97,12 @@ echo <<<FINAL
 $conta1->setNome('Joséfino');
 echo 'O titular da conta 1 agora se chama '.$conta1->getNome() . PHP_EOL;
 
-$conta1->setEndereco('Porto Alegre', 'Japiim', 'Marechal', '999');
+$conta1->setEndereco(
+    'Porto Alegre',
+    'Japiim',
+    'Marechal',
+    '999'
+);
 $cidade1 = $conta1->getCidade();
 $bairro1 = $conta1->getBairro();
 $rua1 = $conta1->getRua();
