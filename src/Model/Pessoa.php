@@ -1,8 +1,8 @@
 <?php
 
-namespace PHP\POO2\Model;
+namespace TreinoPHP\POO2\Model;
 
-class Pessoa
+abstract class Pessoa
 {
     protected string $nome;
     protected string $cpf;

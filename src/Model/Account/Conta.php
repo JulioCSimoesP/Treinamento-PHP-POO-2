@@ -1,15 +1,15 @@
 <?php
 
-namespace PHP\POO2\Model\Account;
+namespace TreinoPHP\POO2\Model\Account;
 
-class Conta
+abstract class Conta
 {
     //Propriedades
 
-    private static int $numeroDeContas = 0;
+    protected static int $numeroDeContas = 0;
 
-    private Titular $titular;
-    private float $saldo = 0;
+    protected Titular $titular;
+    protected float $saldo = 0;
 
     //Construtor
 
@@ -49,11 +49,13 @@ class Conta
 
     public function sacar(float $valor): bool
     {
-        if ($this->saqueInvalido($valor)) {
+        $saque = $valor + ($valor * $this->taxaOperacao());
+
+        if ($this->saqueInvalido($saque)) {
             return false;
         }
 
-        $this->saldo -= $valor;
+        $this->saldo -= $saque;
         echo 'Saque realizado com sucesso.' . PHP_EOL;
         return true;
     }
@@ -66,18 +68,6 @@ class Conta
 
         $this->saldo += $valor;
         echo 'Depósito realizado com sucesso.' . PHP_EOL;
-        return true;
-    }
-
-    public function transferir(float $valor, Conta $destinatario): bool
-    {
-        if ($this->transferenciaInvalida($valor, $destinatario)) {
-            return false;
-        }
-
-        $this->sacar($valor);
-        $destinatario->depositar($valor);
-        echo 'Transferência realizada com sucesso.' . PHP_EOL;
         return true;
     }
 
@@ -135,7 +125,7 @@ class Conta
 
     //Métodos privados
 
-    private function saqueInvalido(float $valor): bool
+    protected function saqueInvalido(float $valor): bool
     {
         if ($valor <= 0) {
             echo 'Valor de saque inválido.' . PHP_EOL;
@@ -150,7 +140,7 @@ class Conta
         return false;
     }
 
-    private function depositoInvalido(float $valor): bool
+    protected function depositoInvalido(float $valor): bool
     {
         if ($valor <= 0) {
             echo 'Valor de depósito inválido.' . PHP_EOL;
@@ -160,25 +150,12 @@ class Conta
         return false;
     }
 
-    private function transferenciaInvalida(float $valor, Conta $destinatario): bool
+    abstract protected function taxaOperacao(): float;
+    /*Modelo de implementação:
     {
-        if ($valor <= 0) {
-            echo 'Valor de transferência inválido.' . PHP_EOL;
-            return true;
-        }
-
-        if ($valor > $this->saldo) {
-            echo 'Saldo insuficiente.' . PHP_EOL;
-            return true;
-        }
-
-        if ($destinatario === $this) {
-            echo 'Você não pode transferir para si mesmo.' . PHP_EOL;
-            return true;
-        }
-
-        return false;
+        return (*valor da taxa*)
     }
+    */
 
     //Métodos estáticos
 

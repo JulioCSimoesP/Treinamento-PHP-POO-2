@@ -1,25 +1,26 @@
 <?php
 
-namespace PHP\POO2\Model\Collaborator;
+namespace TreinoPHP\POO2\Model\Collaborator;
 
-use PHP\POO2\Model\Pessoa;
+use TreinoPHP\POO2\Model\Pessoa;
 
-class Funcionario extends Pessoa
+abstract class Funcionario extends Pessoa
 {
     //Propriedades
 
-    private string $cargo;
+    protected string $cargo;
+    protected float $salario;
 
     //Construtor
 
     public function __construct(
         string $nome,
         string $cpf,
-        string $cargo
+        float $salario
     )
     {
         parent::__construct($nome, $cpf);
-        $this->cargo = $cargo;
+        $this->salario = $salario;
     }
 
     //Getters e Setters
@@ -29,4 +30,36 @@ class Funcionario extends Pessoa
         return $this->cargo;
     }
 
+    public function getSalario(): float
+    {
+        return $this->salario;
+    }
+
+    //Métodos públicos
+
+    public function calcularBonificacao(): float
+    {
+        return $this->salario * 0.1;
+    }
+
+    public function fornecerAumento(float $valor): void
+    {
+        if ($this->aumentoInvalido($valor)) {
+            return;
+        }
+
+        $this->salario += $valor;
+    }
+
+    //Métodos privados
+
+    protected function aumentoInvalido($valor): bool
+    {
+        if ($valor <= 0) {
+            echo 'Valor de aumento inválido';
+            return true;
+        }
+
+        return false;
+    }
 }

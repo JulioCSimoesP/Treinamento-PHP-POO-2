@@ -1,6 +1,6 @@
 <?php
 
-namespace PHP\POO2\Model;
+namespace TreinoPHP\POO2\Model;
 
 class Endereco
 {

@@ -1,11 +1,11 @@
 <?php
 
-use PHP\POO2\Model\Account\Conta;
-use PHP\POO2\Model\Collaborator\Funcionario;
+use TreinoPHP\POO2\Model\Account\{ContaCorrente, ContaPoupanca};
+use TreinoPHP\POO2\Model\Collaborator\Desenvolvedor;
 
 require_once 'autoload.php';
 
-$conta1 = new Conta(11, '123.456.789-10', 'Joãozinho', 'São Paulo', 'Luz', 'GV', '13');
+$conta1 = new ContaCorrente(11, '123.456.789-10', 'Joãozinho', 'São Paulo', 'Luz', 'GV', '13');
 
 $agencia1 = $conta1->getAgencia();
 $cpf1 = $conta1->getCpf();
@@ -16,7 +16,7 @@ $bairro1 = $conta1->getBairro();
 $rua1 = $conta1->getRua();
 $numero1 = $conta1->getNumero();
 
-$conta2 = new Conta(12, '987.654.321-10', 'Patrícia', 'Manaus', 'Flores', 'Japão', '70A');
+$conta2 = new ContaPoupanca(12, '987.654.321-10', 'Patrícia', 'Manaus', 'Flores', 'Japão', '70A');
 
 $agencia2 = $conta2->getAgencia();
 $cpf2 = $conta2->getCpf();
@@ -53,13 +53,15 @@ echo <<<FINAL
     Numero da casa do titular: $numero2
     FINAL. PHP_EOL . PHP_EOL;
 
-echo 'O total de contas criadas é igual a '.$conta1::getNumeroDeContas() . PHP_EOL . PHP_EOL;
+echo 'O total de contas criadas é igual a ' . ContaCorrente::getNumeroDeContas() . PHP_EOL . PHP_EOL;
 
-$funcionario1 = new Funcionario('Mario', '132.987.498-15', 'Encanador');
+$funcionario1 = new Desenvolvedor('Mario', '132.987.498-15', 5000, 1);
 
 $nomeFuncionario1 = $funcionario1->getNome();
 $cpfFuncionario1 = $funcionario1->getCpf();
 $cargoFuncionario1 = $funcionario1->getCargo();
+$salarioFuncionario1 = number_format($funcionario1->getSalario(), 2, ',', '');
+$bonificacaoFuncionario1 = number_format($funcionario1->calcularBonificacao(), 2, ',', '');
 
 echo <<<FINAL
     Dados do funcionário:
@@ -67,6 +69,8 @@ echo <<<FINAL
     Nome do funcionário: $nomeFuncionario1
     CPF do funcionário: $cpfFuncionario1
     Cargo do funcionário: $cargoFuncionario1
+    Salário do funcionário: R$ $salarioFuncionario1
+    Bonificação do funcionário: R$ $bonificacaoFuncionario1
     FINAL. PHP_EOL . PHP_EOL;
 
 $conta1->setNome('Joséfino');

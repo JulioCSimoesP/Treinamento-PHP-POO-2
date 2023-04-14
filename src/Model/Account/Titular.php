@@ -1,8 +1,8 @@
 <?php
 
-namespace PHP\POO2\Model\Account;
+namespace TreinoPHP\POO2\Model\Account;
 
-use PHP\POO2\Model\{Endereco, Pessoa};
+use TreinoPHP\POO2\Model\{Endereco, Pessoa};
 
 class Titular extends Pessoa
 {
